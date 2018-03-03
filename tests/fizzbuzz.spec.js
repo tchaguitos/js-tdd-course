@@ -6,7 +6,7 @@ import { Fizzbuzz } from '../src/fizzbuzz';
 
 use(dirtyChai);
 
-describe.only('FizzBuzz', () => {
+describe('FizzBuzz', () => {
   describe('Smoke tests', () => {
     it('should exist method `Fizzbuzz()`', () => {
       expect(Fizzbuzz).to.exist();
@@ -28,5 +28,9 @@ describe.only('FizzBuzz', () => {
 
   it('should return the number when non-multiple', () => {
     expect(Fizzbuzz(4)).to.be.equal(4);
+  });
+
+  it('should return 0 when 0', () => {
+    expect(Fizzbuzz(0)).to.be.equal(0);
   });
 });
