@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
-    "tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch"
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,14 @@
     "url": "https://github.com/tchaguitos/js-tdd-course/issues"
   },
   "homepage": "https://github.com/tchaguitos/js-tdd-course#readme",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
     "eslint": "^4.18.1",
