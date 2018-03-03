@@ -2,25 +2,33 @@ import { use, expect } from 'chai';
 import { describe, it } from 'mocha';
 
 import dirtyChai from 'dirty-chai';
-import { isDivisibleByThree, isDivisibleByFive, isDivisibleByAndFive } from '../src/fizzbuzz';
+import Fizzbuzz from '../src/fizzbuzz';
 
 use(dirtyChai);
 
 describe.only('FizzBuzz', () => {
   describe('Smoke tests', () => {
-    it('should exist method `isDivisibleByThree`', () => {
-      expect(isDivisibleByThree).to.exist();
-      expect(isDivisibleByThree).to.be.a('function');
+    it('should exist method `Fizzbuzz()`', () => {
+      expect(Fizzbuzz()).to.exist();
+      expect(Fizzbuzz()).to.be.a('function');
     });
+  });
 
-    it('should exist method `isDivisibleByFive`', () => {
-      expect(isDivisibleByFive).to.exist();
-      expect(isDivisibleByFive).to.be.a('function');
+  describe('isDivisibleByThree', () => {
+    it('should return `Fizz` when multiple of 3', () => {
+      expect(Fizzbuzz(9)).to.be.equal('Fizz');
     });
+  });
 
-    it('should exist method `isDivisibleByAndFive`', () => {
-      expect(isDivisibleByAndFive).to.exist();
-      expect(isDivisibleByAndFive).to.be.a('function');
+  describe('isDivisibleByFive', () => {
+    it('should return `Buzz` when multiple of 5', () => {
+      expect(Fizzbuzz(25)).to.be.equal('Buzz');
+    });
+  });
+
+  describe('isDivisibleByAndFive', () => {
+    it('should return `FizzBuzz` when multiple of 3 and 5', () => {
+      expect(Fizzbuzz(15)).to.be.equal('FizzBuzz');
     });
   });
 });
